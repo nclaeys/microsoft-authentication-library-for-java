@@ -146,6 +146,8 @@ public class ConfidentialClientApplication extends AbstractClientApplicationBase
                 String subjectValue = signedJWT.getJWTClaimsSet().getSubject();
                 return new CustomJWTAuthentication(
                         ClientAuthenticationMethod.PRIVATE_KEY_JWT,
+                        clientId(),
+                        clientAssertion.assertion(),
                         new ClientID(subjectValue)
                 );
 
